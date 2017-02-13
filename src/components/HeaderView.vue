@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
     <ul class="navigation">
       <li class="logo"><img :src="logoSrc" alt="logo"></li>
       <li><a href="#">首页</a></li>
@@ -7,7 +7,7 @@
       <li><a href="#">作品</a></li>
       <li><a href="#">关于</a></li>
     </ul>
-  </div>
+  </header>
 </template>
 <script>
   let logoSrc = require("src/assets/logo.jpg")

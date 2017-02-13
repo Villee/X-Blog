@@ -31,6 +31,7 @@
 
   .right-menu {
     width: 16.67rem;
+    flex-shrink:0;
     background: rgba(128, 128, 128, 0.05);
   }
 
