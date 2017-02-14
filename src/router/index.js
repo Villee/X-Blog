@@ -12,7 +12,7 @@ export default new Router({
       name: 'Main',
       component: Main
     },{
-      path: '/post',
+      path: '/post/:postId',
       name: 'Post',
       component: Post
     }
