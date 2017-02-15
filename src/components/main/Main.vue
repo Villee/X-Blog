@@ -21,17 +21,21 @@
 
 <style scoped>
   .main-frame {
+    padding-top: 2rem;
     display: flex;
     justify-content: center;
   }
 
   .main-content {
+    flex-shrink: 2;
     width: 66.7rem;
+    margin: 0 4rem;
   }
 
   .right-menu {
-    width: 16.67rem;
-    flex-shrink:0;
+    min-height: 60rem;
+    width: 20rem;
+    flex-shrink: 1;
     background: rgba(128, 128, 128, 0.05);
   }
 

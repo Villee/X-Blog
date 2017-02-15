@@ -1,9 +1,9 @@
 <template>
   <div>
-    <section @click="goPost(postInfo.postId)">
+    <section @click="goPost(postInfo._id)">
       <div class="post-head">
         <div class="post-title">{{postInfo.title}}</div>
-        <div class="time-stamp">{{postInfo.date}}</div>
+        <div class="time-stamp">{{new Date(postInfo.createAt).toLocaleString()}}</div>
       </div>
       <p class="post-content">{{postInfo.content| contentOverflow}}</p>
     </section>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import router from '../../router'
   export default {
     props: ['postInfo'],
     filters: {
@@ -21,10 +22,10 @@
         }
         return value;
       }
-    },methods:{
-          goPost(postId){
-              console.log('点击文章了'+postId);
-          }
+    }, methods: {
+      goPost(blogId){
+        router.push({name: 'BlogDetail', params: {id: blogId}});
+      }
     }
   }
 </script>
@@ -72,6 +73,7 @@
     .post-head .post-title {
       font-size: 1.8rem;
     }
+
     .time-stamp {
       margin-top: .5rem;
     }
