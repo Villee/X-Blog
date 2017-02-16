@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '../components/main/Main'
-import Blog from '../components/BlogDetail/BlogDetail'
+import Main from '../components/main_content/Main'
+import Blog from '../components/post/Post'
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ export default new Router({
       component: Main
     }, {
       path: '/blog/id/:id',
-      name: 'BlogDetail',
+      name: 'post',
       component: Blog
     }
   ]

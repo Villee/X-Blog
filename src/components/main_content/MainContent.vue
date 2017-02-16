@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h2>MainContent</h2>
     <div v-for="post in posts">
       <blog-item :postInfo="post"></blog-item>
     </div>
+    <a href="#" class="link-all">查看所有文章...</a>
   </div>
 </template>
 
 <script>
-  import blogItem from 'components/main/BlogItem'
+  import blogItem from './PostItem'
   export default {
     data: () => {
       return {
@@ -27,3 +27,12 @@
     }
   }
 </script>
+
+<style scoped>
+  .link-all {
+    margin: 1rem;
+    color: black;
+    text-decoration: none;
+    font-size: 1.4rem;
+  }
+</style>

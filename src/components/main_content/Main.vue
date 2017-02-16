@@ -1,6 +1,6 @@
 <template>
   <div class="main-frame">
-    <div class="main-content">
+    <div class="main-content animated fadeInLeft">
       <main-content></main-content>
     </div>
     <div class="right-menu">
@@ -9,8 +9,8 @@
   </div>
 </template>
 <script>
-  import mainContent from 'components/main/MainContent.vue'
-  import rightMenu from 'components/main/RightMenu.vue'
+  import mainContent from './MainContent.vue'
+  import rightMenu from './RightMenu.vue'
   export default {
     components: {
       mainContent,
@@ -19,9 +19,8 @@
   }
 </script>
 
-<style scoped>
+<style style rel="stylesheet/scss" lang="scss" scoped>
   .main-frame {
-    padding-top: 2rem;
     display: flex;
     justify-content: center;
   }

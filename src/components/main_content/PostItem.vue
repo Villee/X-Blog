@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <section @click="goPost(postInfo._id)">
-      <div class="post-head">
-        <div class="post-title">{{postInfo.title}}</div>
-        <div class="time-stamp">{{new Date(postInfo.createAt).toLocaleString()}}</div>
-      </div>
-      <p class="post-content">{{postInfo.content| contentOverflow}}</p>
-    </section>
-  </div>
+  <article @click="goPost(postInfo._id)">
+    <div class="post-head">
+      <div class="post-title">{{postInfo.title}}</div>
+      <div class="time-stamp">{{new Date(postInfo.createAt).toLocaleString()}}</div>
+    </div>
+    <p class="post-content">{{postInfo.content| contentOverflow}}</p>
+  </article>
 </template>
 
 <script>
@@ -24,20 +22,25 @@
       }
     }, methods: {
       goPost(blogId){
-        router.push({name: 'BlogDetail', params: {id: blogId}});
+        router.push({name: 'post', params: {id: blogId}});
       }
     }
   }
 </script>
 
 <style scoped>
-  section {
-    border: 1px solid #f1f1f1;
+
+  article {
+    border-bottom: 1px solid #f1f1f1;
     margin: 0 0 4rem 0;
     padding: 0.8rem;
   }
 
-  section .post-head {
+  article:hover {
+    background: rgba(235, 235, 235, 0.16);
+  }
+
+  article .post-head {
     display: flex;
     justify-content: space-between;
   }
@@ -59,8 +62,10 @@
     font-size: 2.6rem;
   }
 
-  section p {
-    font-size: 1.5rem;
+  article p {
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: 1.1rem;
   }
 
   .post-content {

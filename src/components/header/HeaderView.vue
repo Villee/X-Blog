@@ -2,15 +2,16 @@
   <header class="header">
     <ul class="navigation">
       <li class="logo"><img :src="logoSrc" alt="logo"></li>
-      <li><a href="#">首页</a></li>
+      <li><a href="#" class="icon-home">首页</a></li>
       <li>
-        <router-link to="/post">文章</router-link>
+        <router-link to="/post" class="icon-file-text">文章</router-link>
       </li>
-      <li><a href="https://git.oschina.net/wangfeiys">作品</a></li>
+      <li><a href="https://git.oschina.net/wangfeiys" class="icon-github">GitHub</a></li>
       <li>
-        <div class="about-wrapper"><a href="" @click.prevent="" @mouseenter="showAbout" @mouseleave="hideAbout">关于</a><img
+        <div class="about-wrapper"><a href="" @click.prevent="" @mouseenter="showAbout" @mouseleave="hideAbout"
+                                      class="icon-point-right">关于</a><img
           :src="aboutSrc" alt="WeChat" v-show="showAboutMe"
-          class="about-me"></div>
+          class="about-me animated fadeIn"></div>
       </li>
     </ul>
   </header>
@@ -37,22 +38,22 @@
   }
 </script>
 
-<style scoped>
+<style style rel="stylesheet/scss" lang="scss" scoped>
+  $navHeight: 5rem;
+
   .header {
+    background-color: white;
+    height: $navHeight;
+    position: absolute;
+    top:0;
+    width: 100%;
     border-bottom: 1px solid #f1f1f1;
   }
 
   .navigation {
-    height: 5rem;
     list-style: none;
     margin: 0 8rem 0 0;
-    background: white;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
     justify-content: flex-end;
     align-items: center;
   }
@@ -87,13 +88,18 @@
   .about-me {
     width: 25rem;
     position: absolute;
-    top: 6rem;
+    top: 4.7rem;
     left: -15rem;
   }
 
   @media all and (max-width: 800px) {
     .navigation {
       margin: 0;
+    }
+
+    .about-me {
+      width: 20rem;
+      left: -15rem;
     }
   }
 
@@ -106,6 +112,11 @@
     .navigation a {
       text-align: center;
       padding: 10px;
+    }
+
+    .about-me {
+      width: 15rem;
+      left: -12rem;
     }
   }
 

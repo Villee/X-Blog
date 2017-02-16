@@ -48,7 +48,6 @@
 
 <style scoped>
   .wrapper {
-    padding-top: 2rem;
     display: flex;
     justify-content: center;
   }

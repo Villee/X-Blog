@@ -9,6 +9,9 @@ Vue.prototype.$http = axios
 
 //重置css
 import 'assets/css/normalize.css'
+//使用animate.css动画库
+import  'animate.css'
+import './assets/css/style.css'
 
 /* eslint-disable no-new */
 new Vue({
