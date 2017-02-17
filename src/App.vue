@@ -1,12 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav-wrapper" :class="navClass">
-      <header-view></header-view>
-    </div>
+    <header id="nav-wrapper" :class="navClass">
+      <header-view v-once></header-view>
+    </header>
+
     <div id="main-content">
       <router-view></router-view>
     </div>
-    <footbar></footbar>
+
+    <footer id="footer-wrapper">
+      <footbar v-once></footbar>
+    </footer>
   </div>
 </template>
 
@@ -32,11 +36,9 @@
       handleScroll(){
         if (this.scrollY > window.scrollY) {
           //下滑，隐藏导航栏
-          console.log('上滑');
           this.navClass = 'animated fadeIn';
         } else {
           //下滑，显示导航栏
-          console.log('下滑');
           this.navClass = 'animated fadeOut'
         }
         this.scrollY = window.scrollY;
@@ -48,8 +50,12 @@
   }
 </script>
 
-<style>
+<style lang="scss" rel="stylesheet/scss">
+
+  @import "./assets/css/constants";
+
   html {
+    overflow: scroll;
     font-size: 12px;
   }
 
@@ -62,16 +68,33 @@
     font-family: Microsoft JhengHei, SimSun, Helvetica, serif;
   }
 
+  #app {
+    display: flex;
+    min-height: 100vh; /*1vh表示浏览器高度的1%，100vh为浏览器高度，感觉这个挺好的*/
+    flex-direction: column; /*灵活的项垂直显示*/
+  }
+
   #main-content {
+    flex: 1;
     width: 100%;
     margin-top: 7rem;
   }
 
   #nav-wrapper {
+    background-color: rgba(255, 255, 255, 1);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+  }
+
+  #footer-wrapper {
+    width: 100%;
+  }
+
+  a {
+    color: $a-color;
+    text-decoration: none;
   }
 
 </style>

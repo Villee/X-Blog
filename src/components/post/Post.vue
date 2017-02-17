@@ -9,8 +9,7 @@
                 {{blogInfo.title}}
               </h2>
             </header>
-            <p class="blog-content">
-              {{blogInfo.content}}
+            <p class="blog-content" v-html="blogInfo.content">
             </p>
           </section>
 
@@ -46,7 +45,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   .wrapper {
     display: flex;
     justify-content: center;
@@ -59,7 +58,7 @@
   }
 
   .right-menu {
-    min-height: 60rem;
+    min-height: 20rem;
     width: 20rem;
     flex-shrink: 1;
     background: rgba(128, 128, 128, 0.05);

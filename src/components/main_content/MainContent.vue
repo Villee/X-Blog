@@ -10,7 +10,7 @@
 <script>
   import blogItem from './PostItem'
   export default {
-    data: () => {
+    data(){
       return {
         posts: []
       }
@@ -18,7 +18,7 @@
     components: {
       blogItem
     },
-    mounted: function () {
+    mounted() {
       this.$http.get('/x-blog/blog').then(data => {
         this.posts = data.data || [];
       }).catch(error => {
@@ -31,8 +31,6 @@
 <style scoped>
   .link-all {
     margin: 1rem;
-    color: black;
-    text-decoration: none;
     font-size: 1.4rem;
   }
 </style>
