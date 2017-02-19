@@ -77,12 +77,14 @@
   #main-content {
     flex: 1;
     width: 100%;
-    margin-top: 7rem;
+    padding-top: 2rem;
+    margin-top: $navHeight;
   }
 
   #nav-wrapper {
     background-color: rgba(255, 255, 255, 1);
     position: fixed;
+    z-index: 100;
     width: 100%;
     top: 0;
     left: 0;

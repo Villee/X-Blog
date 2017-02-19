@@ -2,14 +2,14 @@
   <div class="header">
     <ul class="navigation">
       <li class="logo"><img :src="logoSrc" alt="logo"></li>
-      <li><a href="#" class="icon-home"><span>首页</span></a></li>
+      <li><a href="#" class="icon-home"><span class="icon-left"></span>首页</a></li>
       <li>
-        <router-link to="/post" class="icon-file-text"><span>文章</span></router-link>
+        <router-link to="/post" class="icon-file-text"><span class="icon-left"></span>文章</router-link>
       </li>
-      <li><a href="https://git.oschina.net/wangfeiys" class="icon-github"><span>GitHub</span></a></li>
+      <li><a href="https://git.oschina.net/wangfeiys" class="icon-github"><span class="icon-left"></span>GitHub</a></li>
       <li>
         <div class="about-wrapper"><a href="" @click.prevent="" @mouseenter="showAbout" @mouseleave="hideAbout"
-                                      class="icon-point-right"><span>关于</span></a><img
+        ><span class="icon-qrcode icon-left"></span>Me</a><img
           :src="aboutSrc" alt="WeChat" v-show="showAboutMe"
           class="about-me animated fadeIn"></div>
       </li>
@@ -41,7 +41,7 @@
 
 <style style rel="stylesheet/scss" lang="scss" scoped>
 
-  $navHeight: 5rem;
+  @import "../../assets/css/constants";
 
   .header {
     background-color: white;
@@ -78,6 +78,9 @@
             height: 4rem;
             margin-left: 2rem;
             border-radius: 2rem;
+            @media all and(max-width: 800px) {
+              margin-left: .5rem;
+            }
           }
         }
 
@@ -98,6 +101,9 @@
             span {
               display: none;
             }
+          }
+          .icon-left {
+            margin-right: .5rem;
           }
         }
 

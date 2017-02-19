@@ -20,6 +20,7 @@
 </script>
 
 <style style rel="stylesheet/scss" lang="scss" scoped>
+
   .main-frame {
     display: flex;
     justify-content: center;
@@ -29,6 +30,7 @@
       max-width: 66.7rem;
       min-width: 20rem;
       margin: 0 4rem;
+      background: white;
       @media all and (max-width: 600px) {
         width: 100%;
         margin: 0 1rem;

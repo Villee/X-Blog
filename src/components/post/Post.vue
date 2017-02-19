@@ -36,11 +36,14 @@
       }
     },
     mounted: function () {
-      this.$http.get('/x-blog/blog/id/' + this.$route.params.id).then(data => {
+      this.$http.get('http://localhost:3000/x-blog/blog/id/' + this.$route.params.id).then(data => {
         this.blogInfo = data.data;
       }).catch(error => {
         console.log('请求文章内容失败!')
-      })
+      });
+      this.$http.get("http://japi.juhe.cn/joke/content/list.from?key=8e5feed1b55375f06f9a4c2e41ebc04e&page=2&pagesize=10&sort=asc&time=1418745237")
+        .then(data => console.log(data.toString()))
+        .catch(error => console.log(error))
     }
   }
 </script>
