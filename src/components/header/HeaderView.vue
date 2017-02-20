@@ -2,16 +2,25 @@
   <div class="header">
     <ul class="navigation">
       <li class="logo"><img :src="logoSrc" alt="logo"></li>
-      <li><a href="#" class="icon-home"><span class="icon-left"></span>首页</a></li>
       <li>
-        <router-link to="/post" class="icon-file-text"><span class="icon-left"></span>文章</router-link>
+        <a href="#"><span class="icon-left icon-home"></span><span class="nav-text">Home</span></a>
       </li>
-      <li><a href="https://git.oschina.net/wangfeiys" class="icon-github"><span class="icon-left"></span>GitHub</a></li>
       <li>
-        <div class="about-wrapper"><a href="" @click.prevent="" @mouseenter="showAbout" @mouseleave="hideAbout"
-        ><span class="icon-qrcode icon-left"></span>Me</a><img
-          :src="aboutSrc" alt="WeChat" v-show="showAboutMe"
-          class="about-me animated fadeIn"></div>
+        <router-link to="/post"><span class="icon-left icon-file-text"></span><span
+          class="nav-text">Posts</span>
+        </router-link>
+      </li>
+      <li>
+        <a href="https://github.com/x-codder"><span class="icon-left icon-github"></span>
+          <span class="nav-text">GitHub</span></a>
+      </li>
+      <li class="about-wrapper">
+        <a href="" @click.prevent="" @mouseenter="showAbout" @mouseleave="hideAbout">
+          <span class="icon-qrcode icon-left"></span><span class="nav-text">About</span>
+        </a>
+        <div>
+          <img :src="aboutSrc" alt="WeChat" v-show="showAboutMe" class="about-me animated fadeIn">
+        </div>
       </li>
     </ul>
   </div>
@@ -88,17 +97,19 @@
           text-decoration: none;
           font-size: 1.5rem;
           display: block;
-          padding: 1em;
+          margin: 1rem;
+          padding-bottom: .2rem;
           color: #909090;
           font-weight: bold;
           &:hover {
-            color: rgba(69, 144, 185, 1);
+            color: black;
+            border-bottom: 2px solid black;
           }
           //屏幕宽度小于600，隐藏导航栏的字
           @media all and (max-width: 600px) {
             text-align: center;
             padding: 10px;
-            span {
+            .nav-text {
               display: none;
             }
           }
@@ -107,23 +118,19 @@
           }
         }
 
-        .about-wrapper {
+        &.about-wrapper {
           position: relative;
+          .about-me {
+            width: 25rem;
+            position: absolute;
+            top: 4.7rem;
+            left: -16rem;
+            @media all and (max-width: 600px) {
+              width: 20rem;
+            }
+          }
         }
 
-        .about-me {
-          width: 25rem;
-          position: absolute;
-          top: 4.7rem;
-          left: -15rem;
-          @media all and (max-width: 800px) {
-            width: 20rem;
-          }
-          @media all and (max-width: 600px) {
-            width: 10rem;
-            left: -12rem;
-          }
-        }
       }
     }
   }

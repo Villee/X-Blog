@@ -79,6 +79,9 @@
     width: 100%;
     padding-top: 2rem;
     margin-top: $navHeight;
+    @media all and (max-width: 600px) {
+      padding-top: 0;
+    }
   }
 
   #nav-wrapper {

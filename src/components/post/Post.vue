@@ -1,49 +1,57 @@
 <template>
   <div class="wrapper">
     <div class="main-content">
-      <div>
-        <article class="blog-detail">
-          <section>
-            <header>
-              <h2 class="blog-title">
-                {{blogInfo.title}}
-              </h2>
-            </header>
-            <p class="blog-content" v-html="blogInfo.content">
-            </p>
-          </section>
-
-        </article>
-      </div>
-      <div class="comment">
-        这里是评论区
+      <article>
+        <header>
+          <h2 class="blog-title">
+            {{postInfo.title}}
+          </h2>
+          <div class="blog-nav">
+            <div>
+              <span>标签：</span>[<a href="" v-for="item of postInfo.tag">&nbsp;{{item}}&nbsp;</a>]
+            </div>
+            <div class="time-stamp"><span class="icon-clock icon-left"></span>{{new
+              Date(postInfo.createAt).toLocaleString()}}
+            </div>
+          </div>
+        </header>
+        <p class="blog-content" v-html="postInfo.content">
+        </p>
+        <line-logo></line-logo>
+      </article>
+      <div class="comments">
+        <comments :comments="comments"></comments>
       </div>
     </div>
     <div class="right-menu">
-      <div class="right-text">
-        我是侧边栏
-      </div>
+      <right-menu></right-menu>
     </div>
   </div>
 </template>
 
 <script>
-
+  import rightMenu  from '../main_content/RightMenu.vue';
+  import comments from './Coments.vue';
+  import lineLogo from './LineLogo.vue'
   export default {
     data: () => {
       return {
-        blogInfo: {}
+        postInfo: {},
+        comments: []
       }
     },
     mounted: function () {
-      this.$http.get('http://localhost:3000/x-blog/blog/id/' + this.$route.params.id).then(data => {
-        this.blogInfo = data.data;
-      }).catch(error => {
-        console.log('请求文章内容失败!')
-      });
-      this.$http.get("http://japi.juhe.cn/joke/content/list.from?key=8e5feed1b55375f06f9a4c2e41ebc04e&page=2&pagesize=10&sort=asc&time=1418745237")
-        .then(data => console.log(data.toString()))
-        .catch(error => console.log(error))
+      //请求文章详情以及文章评论
+      this.$http.get('/x-blog/posts/id/' + this.$route.params.id)
+        .then(data => this.postInfo = data.data)
+        .catch(error => console.log('请求文章内容失败!'));
+      this.$http.get('/x-blog/comments/postId/' + this.$route.params.id)
+        .then(data => this.comments = data.data)
+        .catch(err => console.log('请求文章评论失败!'))
+    }, components: {
+      rightMenu,
+      comments,
+      lineLogo
     }
   }
 </script>
@@ -52,49 +60,59 @@
   .wrapper {
     display: flex;
     justify-content: center;
-  }
+    .main-content {
+      flex-shrink: 1;
+      max-width: 80rem;
+      margin: 0 4rem;
+      overflow: hidden;
+      @media all and (max-width: 960px) {
+        margin: 0 1rem;
+      }
+      article {
+        padding-bottom: 5rem;
+        .blog-title {
+          text-align: center;
+          font-size: 3rem;
+          margin: 2rem 0;
+        }
+        .blog-nav {
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.2rem;
+          .tag {
+            span {
+              color: gray;
+            }
+          }
 
-  .main-content {
-    flex-shrink: 2;
-    width: 66.7rem;
-    margin: 0 4rem;
-  }
+          .time-stamp {
+            .icon-left {
+              margin-right: .5rem;
+            }
+          }
+        }
+        .blog-content {
+          font-size: 1.4rem;
+        }
+      }
+    }
 
-  .right-menu {
-    min-height: 20rem;
-    width: 20rem;
-    flex-shrink: 1;
-    background: rgba(128, 128, 128, 0.05);
-  }
-
-  .right-text {
-    font-size: 2rem;
-    margin: 10rem 0 0 5rem;
-  }
-
-  @media all and (max-width: 600px) {
     .right-menu {
-      display: none;
+      min-height: 20rem;
+      width: 20rem;
+      flex-shrink: 0;
+      background: rgba(128, 128, 128, 0.05);
+      @media all and (max-width: 960px) {
+        display: none;
+      }
+
+    }
+
+    .comments {
+      margin-top: 2rem;
+      font-size: 1.4rem;
     }
   }
 
-  .blog-detail {
-    padding-bottom: 5rem;
-    border-bottom: 1px solid #f1f1f1;
-  }
 
-  .blog-title {
-    text-align: center;
-    font-size: 3rem;
-    margin: 2rem 0;
-  }
-
-  .blog-content {
-    font-size: 1.4rem;
-  }
-
-  .comment {
-    margin-top: 2rem;
-    font-size: 1.4rem;
-  }
 </style>

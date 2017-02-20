@@ -31,7 +31,7 @@
       min-width: 20rem;
       margin: 0 4rem;
       background: white;
-      @media all and (max-width: 600px) {
+      @media all and (max-width: 960px) {
         width: 100%;
         margin: 0 1rem;
       }

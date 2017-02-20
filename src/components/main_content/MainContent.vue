@@ -3,7 +3,9 @@
     <div v-for="post in posts">
       <blog-item :postInfo="post"></blog-item>
     </div>
-    <a href="#" class="link-all">查看所有文章...</a>
+    <div class="link-all">
+      <a href="#">查看所有文章...</a>
+    </div>
   </div>
 </template>
 
@@ -19,18 +21,21 @@
       blogItem
     },
     mounted() {
-      this.$http.get('/x-blog/blog').then(data => {
+      this.$http.get('/x-blog/posts').then(data => {
         this.posts = data.data || [];
       }).catch(error => {
-        console.log('请求文章内容失败!')
+        console.log('请求文章内容失败!');
       })
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
   .link-all {
-    margin: 1rem;
+    margin-top: 2rem;
     font-size: 1.4rem;
+    a {
+      color: black;
+    }
   }
 </style>

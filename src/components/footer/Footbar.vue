@@ -5,13 +5,13 @@
     </div>
     <div class="links">
       <router-link to="/">Home</router-link>
-      <a href="https://git.oschina.net/wangfeiys">GitHub</a>
-      <a href="mailto:wangfeiys@163.com">E-Mail</a>
+      <a href="https://github.com/x-codder">GitHub</a>
+      <a href="Mailto:wangfeiys@163.com">E-Mail</a>
       <router-link to="/">About</router-link>
     </div>
 
     <div class="copy-right">
-      &copy;2017&nbsp;&nbsp; x-codder&nbsp;@<a href="http://www.ie.ac.cn/">iecas</a> &nbsp;&nbsp;版权所有
+      &copy;2017&nbsp;&nbsp; Powered by x-codder&nbsp;@<a href="http://www.ie.ac.cn/">iecas</a> &nbsp;&nbsp;
     </div>
   </div>
 </template>
@@ -29,6 +29,7 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   $footer-height: 10rem;
   .wrapper {
+    font-size: 1.1rem;
     height: $footer-height;
     display: flex;
     flex-wrap: wrap;
