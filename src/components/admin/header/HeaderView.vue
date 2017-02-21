@@ -13,7 +13,6 @@
     align-items: center;
     height: 100%;
     background: $admin-dark-bg;
-    box-shadow: 0 .5rem .3rem black;
     .left-logo {
       font-size: 1.4rem;
       color: white;

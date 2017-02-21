@@ -35,17 +35,17 @@
 
     header {
       width: 100%;
-      height: 4rem;
+      height: 3rem;
     }
     .main {
-      margin-top: .3rem;
       width: 100%;
       flex-grow: 1;
       display: flex;
       flex-wrap: nowrap;
+      border-top: .3rem solid $admin-hr-bg;
       .left-menu {
         background: $admin-dark-bg;
-        width: 20rem;
+        width: 15rem;
         flex-grow: 0;
       }
       .main-content {
