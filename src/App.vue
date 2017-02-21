@@ -55,7 +55,7 @@
   @import "./assets/css/constants";
 
   html {
-    overflow: scroll;
+    overflow-y: scroll;//默认显示右侧滚动条，防止页面切换抖动
     font-size: 12px;
   }
 
@@ -70,8 +70,8 @@
 
   #app {
     display: flex;
-    min-height: 100vh; /*1vh表示浏览器高度的1%，100vh为浏览器高度，感觉这个挺好的*/
-    flex-direction: column; /*灵活的项垂直显示*/
+    min-height: 100vh; //1vh表示浏览器高度的1%，100vh为浏览器高度
+    flex-direction: column; //灵活的项垂直显示
   }
 
   #main-content {
