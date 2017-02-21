@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-  let logoSrc = require('../../assets/logo.jpg')
+  let logoSrc = require('../../../assets/logo.jpg')
   export default{
     data(){
       return {
