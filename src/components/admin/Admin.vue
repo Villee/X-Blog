@@ -8,7 +8,7 @@
         <left-menu></left-menu>
       </div>
       <div class="main-content">
-        我是主面板
+        <router-view></router-view>
       </div>
     </div>
 

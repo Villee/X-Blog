@@ -9,3 +9,17 @@ $admin-light-bg: #32373C;
 
 //admin页面分割边栏颜色
 $admin-hr-bg: #101920;
+
+@mixin admin-main-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .header {
+    font-size: 2rem;
+    padding: 2rem 0 2rem 4rem;
+    font-weight: bolder;
+    flex-grow: 0;
+    color: white;
+  }
+}
+
