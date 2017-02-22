@@ -47,6 +47,7 @@
         background: $admin-dark-bg;
         width: 15rem;
         flex-grow: 0;
+        flex-shrink: 0;
       }
       .main-content {
         background: $admin-light-bg;

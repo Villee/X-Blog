@@ -15,6 +15,10 @@ export default {
       path: '/',
       name: 'Edit',
       component: Edit
-    }
+    },{
+      path: '/managePosts',
+      name: 'ManagePosts',
+      component: Edit
+    },
   ]
 }
