@@ -9,8 +9,12 @@ $admin-light-bg: #32373C;
 
 //admin
 $admin-light-panel-bg: #464B4F;
+
 //admin页面分割边栏颜色
 $admin-hr-bg: #101920;
+
+//暗绿色
+$admin-dark-green: #27ae60;
 
 @mixin admin-main-wrapper {
   height: 100%;

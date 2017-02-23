@@ -12,6 +12,7 @@ import 'assets/css/normalize.css'
 //使用animate.css
 import  'animate.css'
 import './assets/css/style.css'
+import  './assets/css/beautify.scss'
 
 /* eslint-disable no-new */
 new Vue({

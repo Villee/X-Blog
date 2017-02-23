@@ -1,0 +1,48 @@
+@import "constants";
+
+input[type="text"] {
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 1.4em;
+  height: 2.7em;
+  border-radius: 4px;
+  color: white;
+  border: 1px solid $admin-light-bg;
+  background: $admin-light-bg;
+  font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  outline: 0;
+  text-decoration: none;
+  width: 100%;
+}
+
+textarea {
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 1.4em;
+  border-radius: 4px;
+  color: white;
+  border: 1px solid $admin-light-bg;
+  background: $admin-light-bg;
+  font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  outline: 0;
+  text-decoration: none;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  border: 1px solid lighten($admin-light-bg, 30%);
+}
+
+::-moz-placeholder {
+  color: #6a6f77;
+}
+
+input::-webkit-input-placeholder {
+  color: #6a6f77;
+}

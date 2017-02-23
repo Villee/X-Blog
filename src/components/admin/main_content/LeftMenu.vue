@@ -12,13 +12,13 @@
         </div>
       </router-link>
 
-      <router-link to="/admin">
+      <router-link to="/managePosts">
         <div class="action">
           <span class="icon-stack"></span></span>文章管理
         </div>
       </router-link>
 
-      <router-link to="/admin">
+      <router-link to="/managePosts">
         <div class="action">
           <span class="icon-bubbles3"></span></span>评论管理
         </div>
@@ -37,15 +37,15 @@
 <script>
   export default{
     mounted(){
-      //为每一个action元素设置点击时背景变色
-      for (let el of this.$el.getElementsByClassName("action")) {
-        el.addEventListener('click', () => {
-          for (let el of this.$el.getElementsByClassName("action")) {
-            el.style.background = "#23282D";
-          }
-          el.style.background = "#1abc9c";
-        })
-      }
+//      //为每一个action元素设置点击时背景变色
+//      for (let el of this.$el.getElementsByClassName("action")) {
+//        el.addEventListener('click', () => {
+//          for (let el of this.$el.getElementsByClassName("action")) {
+//            el.style.background = "#23282D";
+//          }
+//          el.style.background = "#1abc9c";
+//        })
+//      }
     }
   }
 </script>
@@ -89,12 +89,15 @@
     .action-list {
       a {
         color: white;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         .action {
           text-align: left;
-          padding: 2rem;
+          padding: 3rem;
           &:hover {
             background: $admin-light-bg;
+          }
+          &::selection {
+            background: $admin-dark-green;
           }
           span {
             margin-right: 1rem;
