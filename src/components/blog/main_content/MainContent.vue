@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="post in posts">
-      <blog-item :postInfo="post"></blog-item>
+      <blog-item :postInfo="post" :hasImg="post.img?true:false"></blog-item>
     </div>
     <div class="link-all">
       <a href="#">查看所有文章...</a>

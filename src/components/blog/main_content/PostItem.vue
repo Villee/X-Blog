@@ -5,7 +5,7 @@
         <div class="post-title">{{postInfo.title}}</div>
       </header>
       <div class="content-wrapper">
-        <div class="post-img">
+        <div class="post-img" v-show="hasImg">
           <img :src="postInfo.img " alt="">
         </div>
         <p class="post-content">{{postInfo.description| contentOverflow}}</p>
@@ -28,7 +28,7 @@
 <script>
   import router from '../../../router'
   export default {
-    props: ['postInfo'],
+    props: ['postInfo', 'hasImg'],
     filters: {
       contentOverflow(value){
         if (value.length > 300) {

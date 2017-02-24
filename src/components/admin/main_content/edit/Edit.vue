@@ -28,7 +28,8 @@
         </div>
       </div>
       <div class="right">
-        <markdown-editor preview-class="markdown-body" v-model="content" :configs="configs"></markdown-editor>
+        <markdown-editor preview-class="markdown-body" :configs="configs"
+                         ref="markdownEditor" :value="content"></markdown-editor>
         <div class="dowm">
           <button class="save-btn" @click="savePost">存为草稿</button>
           <button class="save-btn" @click="publicPost">发布</button>
@@ -44,27 +45,28 @@
   export default {
     data () {
       return {
-        content: '',
         configs: {
-          initialValue: '~~~\rHello World!\r~~~', // 设置初始值
           renderingConfig: {
             codeSyntaxHighlighting: true, // 开启代码高亮
-            highlightingTheme: 'github' // 自定义代码高亮主题，可选列表(https://github.com/isagalaev/highlight.js/tree/master/src/styles)
+            highlightingTheme: 'github' // 自定义代码高亮主题
           }
         },
+        content: '',
         title: '',
         description: '',
         tag: '',
         category: ''
       }
     },
+    computed: {
+      simplemde () {
+        return this.$refs.markdownEditor.simplemde
+      }
+    },
     components: {
       markdownEditor
     },
     mounted(){
-      console.log(this.$el.querySelector('.markdown-editor').style.display);
-      this.$el.querySelector('.markdown-editor').style.display = 'flex';
-      this.$el.querySelector('.CodeMirror').style["flex-grow"] = 1;
       this.$el.querySelector('.CodeMirror-scroll').style["height"] = '600px';
     },
     methods: {
@@ -72,7 +74,7 @@
         if (this.checkInput()) {
           this.$http.post('/x-blog/posts', {
             title: this.title,
-            content: this.content,
+            content: this.getMarkdownHTML(),
             tag: this.tag,
             category: this.category,
             description: this.description,
@@ -80,7 +82,7 @@
           }).then(data => {
             console.log('文章保存成功!')
           }).catch(err => {
-            console.log('文章保存失败!' + err)
+            alert('文章保存失败!');
           })
         }
       },
@@ -88,20 +90,23 @@
         if (this.checkInput()) {
           this.$http.post('/x-blog/posts', {
             title: this.title,
-            content: this.content,
+            content: this.getMarkdownHTML(),
             tag: this.tag,
             category: this.category,
             description: this.description,
             status: 0 //public
           }).then(data => {
-            console.log('文章发表成功!')
+            alert('文章发表成功!');
           }).catch(err => {
-            console.log('文章保存失败!' + err)
+            alert('文章发表失败!');
           })
         }
       },
       checkInput(){
         return true;
+      },
+      getMarkdownHTML(){
+        return this.simplemde.options.parent.markdown(this.simplemde.value());
       }
     }
   }
@@ -171,6 +176,7 @@
       .right {
         overflow-y: scroll;
         width: 100%;
+        font-size: 1.4rem;
         background: white;
         margin: 2rem 2rem 2rem 0;
         display: flex;
@@ -194,6 +200,9 @@
             color: white;
             border: 1px solid $admin-dark-green;
             background: $admin-dark-green;
+            &:hover {
+              background: lighten($admin-dark-green, 10%);
+            }
           }
         }
       }

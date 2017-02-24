@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="main-content">
+    <div class="post-main-content">
       <article>
         <header>
           <h2 class="blog-title">
@@ -15,7 +15,7 @@
             </div>
           </div>
         </header>
-        <p class="blog-content" v-html="postInfo.content">
+        <p class="blog-content markdown-body" v-html="postInfo.content">
         </p>
         <line-logo></line-logo>
       </article>
@@ -33,6 +33,8 @@
   import rightMenu  from '../main_content/RightMenu.vue';
   import comments from './Coments.vue';
   import lineLogo from './LineLogo.vue'
+  import marked from 'marked'
+  import 'github-markdown-css'
   export default {
     data: () => {
       return {
@@ -41,6 +43,7 @@
       }
     },
     mounted: function () {
+      console.log(marked('I am using __markdown__.'));
       //请求文章详情以及文章评论
       this.$http.get('/x-blog/posts/id/' + this.$route.params.id)
         .then(data => this.postInfo = data.data)
@@ -57,11 +60,13 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+
   .wrapper {
     display: flex;
     justify-content: center;
-    .main-content {
+    .post-main-content {
       flex-shrink: 1;
+      flex-grow: 1;
       max-width: 80rem;
       margin: 0 4rem;
       overflow: hidden;
@@ -92,6 +97,8 @@
           }
         }
         .blog-content {
+          width: 100%;
+          margin-top: 2rem;
           font-size: 1.4rem;
         }
       }

@@ -20,10 +20,7 @@
     data(){
       return {}
     },
-    props: ['commentInfo'],
-    mounted(){
-      console.log(this.commentInfo)
-    }
+    props: ['commentInfo']
   }
 </script>
 
