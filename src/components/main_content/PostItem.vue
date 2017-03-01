@@ -26,7 +26,6 @@
 </template>
 
 <script>
-  import router from '../../../router'
   export default {
     props: ['postInfo', 'hasImg'],
     filters: {
@@ -39,7 +38,7 @@
       }
     }, methods: {
       goPost(blogId){
-        router.push({name: 'post', params: {id: blogId}});
+        this.$router.push({name: 'post', params: {id: blogId}});
       },
       categoryFilter(categorys){
         let result = ''

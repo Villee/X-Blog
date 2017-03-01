@@ -26,8 +26,8 @@
   </div>
 </template>
 <script>
-  let logoSrc = require("../../../assets/logo.jpg")
-  let aboutSrc = require('../../../assets/img/about.jpg')
+  let logoSrc = require("../../assets/logo.jpg")
+  let aboutSrc = require('../../assets/img/about.jpg')
   export default{
     data(){
       return {
@@ -50,11 +50,9 @@
 
 <style style rel="stylesheet/scss" lang="scss" scoped>
 
-  @import "../../../assets/css/constants";
-
   .header {
     background-color: white;
-    height: $navHeight;
+    height: 5rem;
     position: absolute;
     top: 0;
     width: 100%;

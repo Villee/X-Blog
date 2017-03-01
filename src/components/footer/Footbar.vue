@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="logo">
-      <img class="logo-img" :src="logoSrc" alt="logo">
+      <img class="logo-img" src="../../assets/logo.jpg" alt="logo">
     </div>
     <div class="links">
       <router-link to="/">Home</router-link>
@@ -15,17 +15,6 @@
     </div>
   </div>
 </template>
-<script>
-  let logoSrc = require('../../../assets/logo.jpg')
-  export default{
-    data(){
-      return {
-        logoSrc,
-      }
-    }
-  }
-
-</script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   $footer-height: 10rem;
   .wrapper {

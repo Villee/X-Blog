@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="line"></div>
       <div class="center">
-        <img src="../../../assets/logo.jpg" alt="">
+        <img src="../../assets/logo.jpg" alt="">
       </div>
       <div class="line"></div>
     </div>

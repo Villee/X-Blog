@@ -14,12 +14,8 @@
   "dependencies": {
     "animate.css": "^3.5.2",
     "axios": "^0.15.3",
-    "github-markdown-css": "^2.4.1",
-    "highlight.js": "^9.9.0",
-    "simplemde": "^1.11.2",
     "vue": "^2.1.10",
-    "vue-router": "^2.2.0",
-    "vue-simplemde": "^0.3.2"
+    "vue-router": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
