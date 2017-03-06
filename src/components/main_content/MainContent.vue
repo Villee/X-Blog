@@ -23,6 +23,7 @@
     mounted() {
       this.$http.get('/x-blog/posts').then(data => {
         this.posts = data.data || [];
+        console.log('请求文章内容成功!');
       }).catch(error => {
         console.log('请求文章内容失败!');
       })

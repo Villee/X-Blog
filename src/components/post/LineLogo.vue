@@ -8,7 +8,7 @@
       <div class="line"></div>
     </div>
     <div class="words">
-      X-Codder , 来跟我学做菜吧...
+      Villee_> , 来跟我学做菜吧...
     </div>
   </div>
 </template>
@@ -25,6 +25,7 @@
   .wrapper {
     display: flex;
     align-items: center;
+    margin-top: 8rem;
     .center {
       width: 6rem;
       height: 6rem;
